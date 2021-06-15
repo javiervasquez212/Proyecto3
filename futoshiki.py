@@ -354,140 +354,140 @@ def func_jugar():
 
     #Restriccion / Fila 0
 
-    restriccion_0x0 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    restriccion_0x0 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     restriccion_0x0.place(x=398,y=202)
 
-    restriccion_0x1 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    restriccion_0x1 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     restriccion_0x1.place(x=468,y=202)
 
-    restriccion_0x2 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    restriccion_0x2 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     restriccion_0x2.place(x=538,y=202)
 
-    restriccion_0x3 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    restriccion_0x3 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     restriccion_0x3.place(x=608,y=202)
 
     #Restriccion / Fila 1
 
-    restriccion_1x0 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    restriccion_1x0 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     restriccion_1x0.place(x=398,y=272)
 
-    restriccion_1x1 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    restriccion_1x1 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     restriccion_1x1.place(x=468,y=272)
 
-    restriccion_1x2 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    restriccion_1x2 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     restriccion_1x2.place(x=538,y=272)
 
-    restriccion_1x3 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    restriccion_1x3 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     restriccion_1x3.place(x=608,y=272)
 
     #Restriccion / Fila 2
 
-    restriccion_2x0 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    restriccion_2x0 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     restriccion_2x0.place(x=398,y=342)
 
-    restriccion_2x1 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    restriccion_2x1 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     restriccion_2x1.place(x=468,y=342)
 
-    restriccion_2x2 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    restriccion_2x2 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     restriccion_2x2.place(x=538,y=342)
 
-    restriccion_2x3 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    restriccion_2x3 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     restriccion_2x3.place(x=608,y=342)
 
     #Restriccion / Fila 3
 
-    restriccion_3x0 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    restriccion_3x0 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     restriccion_3x0.place(x=398,y=412)
 
-    restriccion_3x1 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    restriccion_3x1 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     restriccion_3x1.place(x=468,y=412)
 
-    restriccion_3x2 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    restriccion_3x2 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     restriccion_3x2.place(x=538,y=412)
 
-    restriccion_3x3 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    restriccion_3x3 = Label(ventana_jugar,text="",font=("Bold",12),fg="#660708",bg="#161a1d")
     restriccion_3x3.place(x=608,y=412)
 
     #Restriccion / Fila 4
 
-    restriccion_4x0 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    restriccion_4x0 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     restriccion_4x0.place(x=398,y=482)
 
-    restriccion_4x1 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    restriccion_4x1 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     restriccion_4x1.place(x=468,y=482)
 
-    restriccion_4x2 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    restriccion_4x2 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     restriccion_4x2.place(x=538,y=482)
 
-    restriccion_4x3 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    restriccion_4x3 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     restriccion_4x3.place(x=608,y=482)
 
     #Restriccion vertical
 
-    r_vertical_0x0 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d",height=1)
+    r_vertical_0x0 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d",height=1)
     r_vertical_0x0.place(x=365,y=241)
 
-    r_vertical_0x1 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    r_vertical_0x1 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     r_vertical_0x1.place(x=435,y=241)
 
-    r_vertical_0x2 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    r_vertical_0x2 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     r_vertical_0x2.place(x=505,y=241)
 
-    r_vertical_0x3 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    r_vertical_0x3 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     r_vertical_0x3.place(x=575,y=241)
 
-    r_vertical_0x4 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    r_vertical_0x4 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     r_vertical_0x4.place(x=645,y=241)
 
     # Botones r_vertical juego / fila 2
 
-    r_vertical_1x0 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    r_vertical_1x0 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     r_vertical_1x0.place(x=365,y=311)
 
-    r_vertical_1x1 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    r_vertical_1x1 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     r_vertical_1x1.place(x=435,y=311)
 
-    r_vertical_1x2 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    r_vertical_1x2 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     r_vertical_1x2.place(x=505,y=311)
 
-    r_vertical_1x3 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    r_vertical_1x3 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     r_vertical_1x3.place(x=575,y=311)
 
-    r_vertical_1x4 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    r_vertical_1x4 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     r_vertical_1x4.place(x=645,y=311)
 
     # Botones r_vertical juego / fila 3
 
-    r_vertical_2x0 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    r_vertical_2x0 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     r_vertical_2x0.place(x=365,y=381)
 
-    r_vertical_2x1 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    r_vertical_2x1 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     r_vertical_2x1.place(x=435,y=381)
 
-    r_vertical_2x2 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    r_vertical_2x2 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     r_vertical_2x2.place(x=505,y=381)
 
-    r_vertical_2x3 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    r_vertical_2x3 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     r_vertical_2x3.place(x=575,y=381)
 
-    r_vertical_2x4 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    r_vertical_2x4 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     r_vertical_2x4.place(x=645,y=381)
 
     # Botones r_vertical juego / fila 4
 
-    r_vertical_3x0 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    r_vertical_3x0 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     r_vertical_3x0.place(x=365,y=451)
 
-    r_vertical_3x1 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    r_vertical_3x1 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     r_vertical_3x1.place(x=435,y=451)
 
-    r_vertical_3x2 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    r_vertical_3x2 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     r_vertical_3x2.place(x=505,y=451)
 
-    r_vertical_3x3 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    r_vertical_3x3 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     r_vertical_3x3.place(x=575,y=451)
 
-    r_vertical_3x4 = Label(ventana_jugar,text="",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+    r_vertical_3x4 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     r_vertical_3x4.place(x=645,y=451)
 
     matriz_de_botones()
@@ -720,7 +720,6 @@ def iniciar_juego():
     nombre_jugador = str(entrada_nombre_jugador.get())
 
     if nombre_jugador != "":
-
         global timer
         global timer_horas, timer_minutos, timer_segundos, timer, felicidades
 
@@ -740,10 +739,6 @@ def iniciar_juego():
         boton_numero_4.config(state="normal")
         boton_numero_5.config(state="normal")
 
-        felicidades = Label(ventana_jugar,text="")
-        felicidades.place(x=0,y=0)
-
-        felicidades.after(1000,juego_exitoso)
 
         if valor_reloj == 6:
 
@@ -812,8 +807,17 @@ def terminar_juego():
 def borrar_juego():
     
     respuesta = messagebox.askyesno("Terminar juego","¿ESTÁ SEGURO DE BORRAR EL JUEGO")
-    
 
+    if respuesta == False:
+        pass
+    else:
+        while len(matriz_pila) > 0:
+            ultima_jugada = matriz_pila.pop()
+            matriz_botones[ultima_jugada[0]][ultima_jugada[1]].config(text="")
+
+            valores_botones[ultima_jugada[0]][ultima_jugada[1]] = 0
+            valores_botones_vertical[ultima_jugada[1]][ultima_jugada[0]] = 0
+            
 #Funcion guardar juego
 
 def guardar_juego():
@@ -917,67 +921,74 @@ def señalar_posicion():
 
 def cambio_cuadricula_0x0():
     try:
+        if poner_numero in valores_botones_vertical[0]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[0]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[0] and poner_numero not in valores_botones_vertical[0]:
             valores_botones[0][0] = poner_numero
             valores_botones_vertical[0][0] = poner_numero
             casilla_0x0.config(text=poner_numero)
             matriz_pila.append((0,0))
-        else:
-            casilla_0x0.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
 def cambio_cuadricula_0x1():
 
     try:
+        if poner_numero in valores_botones_vertical[1]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[0]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[0] and poner_numero not in valores_botones_vertical[1]:
             valores_botones[0][1] = poner_numero
             valores_botones_vertical[1][0] = poner_numero
             casilla_0x1.config(text=poner_numero)
             matriz_pila.append((0,1))
-        else:
-            casilla_0x1.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
 def cambio_cuadricula_0x2():
     try:
+        if poner_numero in valores_botones_vertical[2]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[0]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[0]and poner_numero not in valores_botones_vertical[2]:
             valores_botones[0][2] = poner_numero
             valores_botones_vertical[2][0] = poner_numero
             casilla_0x2.config(text=poner_numero)
             matriz_pila.append((0,2))
-        else:
-            casilla_0x2.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
+
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
 def cambio_cuadricula_0x3():
     try:
+        if poner_numero in valores_botones_vertical[3]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[0]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[0]and poner_numero not in valores_botones_vertical[3]:
             valores_botones[0][3] = poner_numero
             valores_botones_vertical[3][0] = poner_numero
             casilla_0x3.config(text=poner_numero)
             matriz_pila.append((0,3))
-        else:
-            casilla_0x3.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
+ 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
 def cambio_cuadricula_0x4():
     try:
+        if poner_numero in valores_botones_vertical[4]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[0]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[0]and poner_numero not in valores_botones_vertical[4]:
             valores_botones[0][4] = poner_numero
             valores_botones_vertical[4][0] = poner_numero
             casilla_0x4.config(text=poner_numero)
             matriz_pila.append((0,4))
-        else:
-            casilla_0x4.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -986,67 +997,75 @@ def cambio_cuadricula_0x4():
 def cambio_cuadricula_1x0():
 
     try:
+        if poner_numero in valores_botones_vertical[0]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[1]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[1]and poner_numero not in valores_botones_vertical[0]:
             valores_botones[1][0] = poner_numero
             valores_botones_vertical[0][1] = poner_numero
             casilla_1x0.config(text=poner_numero)
             matriz_pila.append((1,0))
-        else:
-            casilla_1x0.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
+
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
 def cambio_cuadricula_1x1():
     try:
+        if poner_numero in valores_botones_vertical[1]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[1]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[1]and poner_numero not in valores_botones_vertical[1]:
             valores_botones[1][1] = poner_numero
             valores_botones_vertical[1][1] = poner_numero
             casilla_1x1.config(text=poner_numero)
             matriz_pila.append((1,1))
-        else:
-            casilla_1x1.config(text="")
-   
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
+
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
 def cambio_cuadricula_1x2():
     try:
+        if poner_numero in valores_botones_vertical[2]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[1]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[1]and poner_numero not in valores_botones_vertical[2]:
             valores_botones[1][2] = poner_numero
             valores_botones_vertical[2][1] = poner_numero
             casilla_1x2.config(text=poner_numero)
             matriz_pila.append((1,2))
-        else:
-            casilla_1x2.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
+
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
 def cambio_cuadricula_1x3():
     try:
+        if poner_numero in valores_botones_vertical[3]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[1]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[1]and poner_numero not in valores_botones_vertical[3]:
             valores_botones[1][3] = poner_numero
             valores_botones_vertical[3][1] = poner_numero
             casilla_1x3.config(text=poner_numero)
             matriz_pila.append((1,3))
-        else:
-            casilla_1x3.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
+
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
 def cambio_cuadricula_1x4():
     try:
+        if poner_numero in valores_botones_vertical[4]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[1]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[1]and poner_numero not in valores_botones_vertical[4]:
             valores_botones[1][4] = poner_numero
             valores_botones_vertical[4][1] = poner_numero
             casilla_1x4.config(text=poner_numero)
             matriz_pila.append((1,4))
-        else:
-            casilla_1x4.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -1054,66 +1073,76 @@ def cambio_cuadricula_1x4():
 
 def cambio_cuadricula_2x0():
     try:
+        if poner_numero in valores_botones_vertical[0]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[2]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[2]and poner_numero not in valores_botones_vertical[0]:
             valores_botones[2][0] = poner_numero
             valores_botones_vertical[0][2] = poner_numero
             casilla_2x0.config(text=poner_numero)
             matriz_pila.append((2,0))
-        else:
-            casilla_2x0.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
+
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
 def cambio_cuadricula_2x1():
     try:
+        if poner_numero in valores_botones_vertical[1]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[2]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[2]and poner_numero not in valores_botones_vertical[1]:
             valores_botones[2][1] = poner_numero
             valores_botones_vertical[1][2] = poner_numero
             casilla_2x1.config(text=poner_numero)
             matriz_pila.append((2,1))
-        else:
-            casilla_2x1.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
+
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
 def cambio_cuadricula_2x2():
     try:
+        if poner_numero in valores_botones_vertical[2]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[2]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[2]and poner_numero not in valores_botones_vertical[2]:
             valores_botones[2][2] = poner_numero
             valores_botones_vertical[2][2] = poner_numero
             casilla_2x2.config(text=poner_numero)
             matriz_pila.append((2,2))
-        else:
-            casilla_2x2.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
+
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
 def cambio_cuadricula_2x3():
     try:
+        if poner_numero in valores_botones_vertical[3]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[2]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[2]and poner_numero not in valores_botones_vertical[3]:
             valores_botones[2][3] = poner_numero
             valores_botones_vertical[3][2] = poner_numero
             casilla_2x3.config(text=poner_numero)
             matriz_pila.append((2,3))
-        else:
-            casilla_2x3.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
+
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
 def cambio_cuadricula_2x4():
     try:
+        if poner_numero in valores_botones_vertical[4]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[2]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[2]and poner_numero not in valores_botones_vertical[4]:
             valores_botones[2][4] = poner_numero
             valores_botones_vertical[4][2] = poner_numero
             casilla_2x4.config(text=poner_numero)
             matriz_pila.append((2,4))
-        else:
-            casilla_2x4.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
+
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -1121,66 +1150,74 @@ def cambio_cuadricula_2x4():
 
 def cambio_cuadricula_3x0():
     try:
+        if poner_numero in valores_botones_vertical[0]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[3]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[3]and poner_numero not in valores_botones_vertical[0]:
             valores_botones[3][0] = poner_numero
             valores_botones_vertical[0][3] = poner_numero
             casilla_3x0.config(text=poner_numero)
             matriz_pila.append((3,0))
-        else:
-            casilla_3x0.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
 def cambio_cuadricula_3x1():
     try:
+        if poner_numero in valores_botones_vertical[1]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[3]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[3]and poner_numero not in valores_botones_vertical[1]:
             valores_botones[3][1] = poner_numero
             valores_botones_vertical[1][3] = poner_numero
             casilla_3x1.config(text=poner_numero)
             matriz_pila.append((3,1))
-        else:
-            casilla_3x1.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
+
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
 def cambio_cuadricula_3x2():
     try:
+        if poner_numero in valores_botones_vertical[2]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[3]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[3]and poner_numero not in valores_botones_vertical[2]:
             valores_botones[3][2] = poner_numero
             valores_botones_vertical[2][3] = poner_numero
             casilla_3x2.config(text=poner_numero)
             matriz_pila.append((3,2))
-        else:
-            casilla_3x2.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
 def cambio_cuadricula_3x3():
     try:
+        if poner_numero in valores_botones_vertical[3]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[3]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[3]and poner_numero not in valores_botones_vertical[3]:
             valores_botones[3][3] = poner_numero
             valores_botones_vertical[3][3] = poner_numero
             casilla_3x3.config(text=poner_numero)
             matriz_pila.append((3,3))
-        else:
-            casilla_3x3.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
+
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
 def cambio_cuadricula_3x4():
     try:
+        if poner_numero in valores_botones_vertical[4]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[3]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[3]and poner_numero not in valores_botones_vertical[4]:
             valores_botones[3][4] = poner_numero
             valores_botones_vertical[4][3] = poner_numero
             casilla_3x4.config(text=poner_numero)
             matriz_pila.append((3,4))
-        else:
-            casilla_3x4.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
+
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -1188,66 +1225,75 @@ def cambio_cuadricula_3x4():
 
 def cambio_cuadricula_4x0():
     try:
+        if poner_numero in valores_botones_vertical[0]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[4]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[4]and poner_numero not in valores_botones_vertical[0]:
             valores_botones[4][0] = poner_numero
             valores_botones_vertical[0][4] = poner_numero
             casilla_4x0.config(text=poner_numero)
             matriz_pila.append((4,0))
-        else:
-            casilla_4x0.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
+
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
 def cambio_cuadricula_4x1():
     try:
+        if poner_numero in valores_botones_vertical[1]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[4]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[4]and poner_numero not in valores_botones_vertical[1]:
             valores_botones[4][1] = poner_numero
             valores_botones_vertical[1][4] = poner_numero
             casilla_4x1.config(text=poner_numero)
             matriz_pila.append((4,1))
-        else:
-            casilla_4x1.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
 def cambio_cuadricula_4x2():
     try:
+        if poner_numero in valores_botones_vertical[2]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[4]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[4]and poner_numero not in valores_botones_vertical[2]:
             valores_botones[4][2] = poner_numero
             valores_botones_vertical[2][4] = poner_numero
             casilla_4x2.config(text=poner_numero)
             matriz_pila.append((4,2))
-        else:
-            casilla_4x2.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
+
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
 def cambio_cuadricula_4x3():
     try:
+        if poner_numero in valores_botones_vertical[3]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[4]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[4]and poner_numero not in valores_botones_vertical[3]:
             valores_botones[4][3] = poner_numero
             valores_botones_vertical[3][4] = poner_numero
             casilla_4x3.config(text=poner_numero)
             matriz_pila.append((4,3))
-        else:
-            casilla_4x3.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
+
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
 def cambio_cuadricula_4x4():
     try:
+        if poner_numero in valores_botones_vertical[4]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
+        if poner_numero in valores_botones[4]:
+            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
         if poner_numero not in valores_botones[4]and poner_numero not in valores_botones_vertical[4]:
             valores_botones[4][4] = poner_numero
             valores_botones_vertical[4][4] = poner_numero
             casilla_4x4.config(text=poner_numero)
             matriz_pila.append((4,4))
-        else:
-            casilla_4x4.config(text="")
-            messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
+
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -1346,12 +1392,13 @@ def timer_funcion():
 
 def archivo_partida_dificultad():
     import pickle
+    import random
 
-    global matriz_botones, valores_botones
+    global matriz_botones, valores_botones, indice, subindice
 
     f = open("prueba.dat","wb")
     pickle.dump([
-                [(("5",0,0),("4",0,1),("1",0,3),("2",2,1),("5",2,3),("3",2,4),("1",3,1),("2",3,3),("5",4,4)),
+                [(("4",0,1),("1",0,3),("2",2,1),("5",2,3),("3",2,4),("1",3,1),("2",3,3),("5",4,4)),
                 (("2",0,3),("2",1,0),("1",1,2),("3",1,3),("3",2,2),("1",2,3),("1",4,0),("5",4,4)),
                 (("5",0,2),("1",1,0),("3",1,1),("2",1,4),("3",3,0),("1",3,4),("1",4,3),("5",4,4))
                 ],
@@ -1379,36 +1426,37 @@ def archivo_partida_dificultad():
             break
     f.close()
 
-    for elemento in a[0][0]:
+    indice = valor_nivel - 1
+    subindice = random.randint(0,2)
+
+    for elemento in a[1][1]:
         if elemento[0] == "<" or elemento[0] == ">":
             restricciones_paralelas[elemento[1]][elemento[2]].config(text=elemento[0])
+            signo_restricciones_paralelas[elemento[1]][elemento[2]] = elemento[0]
+
         elif elemento[0] == "˄" or elemento[0] == "˅":
             restricciones_verticales[elemento[1]][elemento[2]].config(text=elemento[0])
+            signo_restricciones_verticales[elemento[1]][elemento[2]] = elemento[0]
         else:
             matriz_botones[elemento[1]][elemento[2]].config(text=elemento[0])
             matriz_botones[elemento[1]][elemento[2]].config(command=casilla_fija)
             valores_botones[elemento[1]][elemento[2]] = int(elemento[0])
             valores_botones_vertical[elemento[2]][elemento[1]]= int(elemento[0])
 
+
+    print(signo_restricciones_paralelas)
+    print("-------")
+    print(signo_restricciones_verticales)
+    print("-------")
+    print(valores_botones)
+    
 def casilla_fija():
     messagebox.showinfo(title="Timer",message="JUGADA NO ES VÁLIDA PORQUE ESTE ES UN DÍGITO FIJO")
-
-def juego_exitoso():
-    global bandera
-
-    bandera = False
-    for elemento in valores_botones:
-        for valor in elemento:
-            if valor == 0:
-                bandera = False
-                return bandera
-    if bandera == True:
-        messagebox.showinfo(title="Felicidades",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO.")
-    felicidades.after(1000,juego_exitoso)
 
 def matriz_de_botones():
 
     global matriz_botones, valores_botones, restricciones_paralelas, restricciones_verticales, valores_botones_vertical, matriz_pila
+    global signo_restricciones_paralelas, signo_restricciones_verticales
 
     global valor_0x0
     global valor_0x1
@@ -1498,6 +1546,10 @@ def matriz_de_botones():
                                 [r_vertical_1x0,r_vertical_1x1,r_vertical_1x2,r_vertical_1x3,r_vertical_1x4],\
                                 [r_vertical_2x0,r_vertical_2x1,r_vertical_2x2,r_vertical_2x3,r_vertical_2x4],\
                                 [r_vertical_3x0,r_vertical_3x1,r_vertical_3x2,r_vertical_3x3,r_vertical_3x4]]
+
+    signo_restricciones_paralelas = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+    
+    signo_restricciones_verticales = [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
     
     matriz_pila = []
 #Creación de la barra menú
