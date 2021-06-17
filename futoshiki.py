@@ -741,11 +741,17 @@ def top_10():
 
     #Creación de la ventana
 
+    global ventana_top_10
+
+    timer.destroy()
+
     ventana_top_10 = Toplevel()
     ventana_top_10.title("Top 10")
     ventana_top_10.geometry("600x600")
     ventana_top_10.configure(bg="#b1a7a6")
 
+    boton_salida = Button(ventana_top_10,text="X",command=salir_top10)
+    boton_salida.place(x=0,y=0)
     #Titulo
 
     titulo_top = Label(ventana_top_10,text="Top 10", font=("Arial Black",40),fg="red",bg="#b1a7a6")
@@ -890,6 +896,11 @@ def top_10():
 
 #Función boton iniciar juego
 
+def salir_top10():
+
+    ventana_top_10.destroy()
+    iniciar_juego()
+
 def iniciar_juego():
     
     #Variable global
@@ -969,7 +980,7 @@ def terminar_juego():
             timer_horas.config(text=hora_aux)
             timer_minutos.config(text=min_aux)
             timer_segundos.config(text=seg_aux)
-            
+
         func_jugar()
     else:
         pass
