@@ -15,6 +15,7 @@ ventana_principal.title("Futoshiki") #Titulo de la ventana principal
 valor_nivel = 1
 valor_reloj = 4
 valor_posicion = 7
+bandera = False
 
 #Funciones principales
 
@@ -898,7 +899,7 @@ def top_10():
 
 def salir_top10():
 
-    ventana_top_10.destroy()
+    ventana_top_10.state(newstate="withdraw")
     iniciar_juego()
 
 def iniciar_juego():
@@ -942,6 +943,7 @@ def iniciar_juego():
     else:
         messagebox.showinfo(title="Aviso",message= "VALIDE EL NOMBRE DEL JUGADOR, ESTE DEBE SER MAXIMO DE 2O CARACTERES ")
 
+
 #Función borrar jugada
 
 def borrar_jugada():
@@ -960,6 +962,8 @@ def borrar_jugada():
 
 def terminar_juego():
 
+    global bandera
+
     respuesta = messagebox.askyesno("Terminar juego","¿ESTÁ SEGURO DE TERMINAR EL JUEGO?")
     
     if respuesta == True:
@@ -967,8 +971,9 @@ def terminar_juego():
         timer.destroy()
         global seg_aux,min_aux,hora_aux 
         global seg_timer, min_timer, hora_timer
-
         if valor_reloj == 6: 
+
+            bandera = False
 
             seg_timer = seg_aux
             min_timer = min_aux
@@ -988,6 +993,8 @@ def terminar_juego():
 #Funcion borrar juego
 
 def borrar_juego():
+
+    global bandera
 
     global seg_reloj,min_reloj,hora_reloj
     global seg_aux,min_aux,hora_aux
@@ -1036,6 +1043,8 @@ def borrar_juego():
 
             global seg_aux,min_aux,hora_aux 
             global seg_timer, min_timer, hora_timer
+
+            bandera = False
 
             seg_timer = seg_aux
             min_timer = min_aux
@@ -1354,11 +1363,9 @@ def cambio_cuadricula_0x3():
 def cambio_cuadricula_0x4():
     try:
         if poner_numero in valores_botones_vertical[4]:
-            print(valores_botones_vertical[4])
             messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA COLUMNA")
 
         if poner_numero in valores_botones[0]:
-            print(valores_botones[0])
             messagebox.showinfo(title="Casilla",message= "JUGADA NO ES VÁLIDA PORQUE EL ELEMENTO YA ESTÁ EN LA FILA")
 
         if poner_numero not in valores_botones[0]and poner_numero not in valores_botones_vertical[4]:
@@ -2314,24 +2321,25 @@ def timer_funcion():
     global seg_timer,min_timer,hora_timer
     global seg_aux,min_aux,hora_aux
     global seg_reloj,min_reloj,hora_reloj
+    global bandera
 
     seg_timer -= 1
 
-    if seg_timer == 0:
+    if seg_timer <= 0:
         if min_timer!=0:
             seg_timer = 59
             min_timer -= 1
         else:
             min_timer = 0
             seg_timer = 0
-            if min_timer == 0:
+            if min_timer <= 0:
                 if hora_timer !=0:
                     min_timer = 59
-                    hora_timer = 0
+                    hora_timer -= 1
                 else:
                     min_timer = 0
                     hora_timer = 0
-                    if seg_timer == 0 and min_timer == 0 and hora_timer == 0:
+                    if seg_timer <= 0 and min_timer <= 0 and hora_timer <= 0:
                         respuesta = messagebox.askyesno("TIEMPO EXPIRADO", "¿DESEA CONTINUAR EL MISMO JUEGO")
 
                         if respuesta == True:
@@ -2344,16 +2352,18 @@ def timer_funcion():
                             min_reloj = min_aux
                             hora_reloj = hora_aux
 
+                            bandera = True
                             reloj()
                         else:
                             ventana_jugar.state(newstate="withdraw")
                             func_jugar()
-    if seg_timer >= 0:
-        timer_segundos.config(text=seg_timer)
-    if hora_timer >= 0:
-        timer_horas.config(text=hora_timer)
-    if min_timer >= 0:
-        timer_minutos.config(text=min_timer)
+    if bandera == False:
+        if seg_timer >= 0:
+            timer_segundos.config(text=seg_timer)
+        if hora_timer >= 0:
+            timer_horas.config(text=hora_timer)
+        if min_timer >= 0:
+            timer_minutos.config(text=min_timer)
     timer.after(1000,timer_funcion)
 # Archivos
 
@@ -2372,7 +2382,7 @@ def archivo_partida_dificultad():
 
                 [
                 (("5",0,0),("3",0,4),(">",0,2),("2",1,1),("˅",2,0),(">",3,0),("˄",3,2),(">",4,1)),
-                (("2",0,0),("˅",0,0),("4",0,1),("˅",1,3),("˄",1,4),(">",2,3),("2",2,4),(">",4,3)),
+                (("3",0,0),("˅",0,0),("4",0,1),("˅",1,3),("˄",1,4),(">",2,3),("2",2,4),(">",4,3)),
                 (("5",0,0),("<",0,1),("˄",1,0),("3",1,3),("˄",3,1),("˄",3,3),("3",4,1),(">",4,2))
                 ],
 
