@@ -141,6 +141,7 @@ def func_jugar():
 
     global seg_reloj,min_reloj,hora_reloj
     global entrada_nombre_jugador
+    global cambio_timer
     
 
     seg_reloj = 0
@@ -249,19 +250,24 @@ def func_jugar():
     
     if valor_posicion == 8:
 
-        boton_numero_1 = Button(ventana_jugar,text="1",font=("Arial Black",12),height = 1, width = 3,bg="#a4161a", command=click_boton1)
+        boton_numero_1 = Button(ventana_jugar,text="1",font=("Arial Black",12),height = 1, width = 3,bg="#a4161a", command=click_boton1,\
+        state="disabled")
         boton_numero_1.place(x=175,y=200)
 
-        boton_numero_2 = Button(ventana_jugar,text="2",font=("Arial Black",12),height = 1, width = 3,bg="#a4161a", command=click_boton2)
+        boton_numero_2 = Button(ventana_jugar,text="2",font=("Arial Black",12),height = 1, width = 3,bg="#a4161a", command=click_boton2,\
+        state="disabled")
         boton_numero_2.place(x=175,y=250)
 
-        boton_numero_3 = Button(ventana_jugar,text="3",font=("Arial Black",12),height = 1, width = 3,bg="#a4161a", command=click_boton3)
+        boton_numero_3 = Button(ventana_jugar,text="3",font=("Arial Black",12),height = 1, width = 3,bg="#a4161a", command=click_boton3,\
+        state="disabled")
         boton_numero_3.place(x=175,y=300)
 
-        boton_numero_4 = Button(ventana_jugar,text="4",font=("Arial Black",12),height = 1, width = 3,bg="#a4161a", command=click_boton4)
+        boton_numero_4 = Button(ventana_jugar,text="4",font=("Arial Black",12),height = 1, width = 3,bg="#a4161a", command=click_boton4,\
+        state="disabled")
         boton_numero_4.place(x=175,y=350)
 
-        boton_numero_5 = Button(ventana_jugar,text="5",font=("Arial Black",12),height = 1, width = 3,bg="#a4161a", command=click_boton5)
+        boton_numero_5 = Button(ventana_jugar,text="5",font=("Arial Black",12),height = 1, width = 3,bg="#a4161a", command=click_boton5,\
+        state="disabled")
         boton_numero_5.place(x=175,y=400)
 
     # Botones casilla juego / fila 1
@@ -490,8 +496,75 @@ def func_jugar():
     r_vertical_3x4 = Label(ventana_jugar,text="",font=("Bold",15),fg="#660708",bg="#161a1d")
     r_vertical_3x4.place(x=645,y=451)
 
+    #Label de cambio de timer
+
+    if valor_reloj == 6:
+
+        cambio_timer = Button(ventana_jugar,text = "Cambiar timer",command=ventana_valores_timer)
+        cambio_timer.place(x=120,y=670)
+
+        timer = Label(ventana_jugar,text="Timer",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+        timer.place(x=140,y=590)
+
+        timer_horas = Label(ventana_jugar,text=hora_timer,font=("Arial Black",12),bg="#161a1d",fg="white")
+        timer_horas.place(x=100,y=620)
+
+        timer_minutos = Label(ventana_jugar,text=min_timer,font=("Arial Black",12),bg="#161a1d",fg="white")
+        timer_minutos.place(x=150,y=620)
+
+        timer_segundos = Label(ventana_jugar,text=seg_timer,font=("Arial Black",12),bg="#161a1d",fg="white")
+        timer_segundos.place(x=200,y=620)
+
+    if valor_reloj == 4:
+
+        timer = Label(ventana_jugar,text="Reloj",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+        timer.place(x=140,y=590)
+
+        timer_horas = Label(ventana_jugar,text="00",font=("Arial Black",12),bg="#161a1d",fg="white")
+        timer_horas.place(x=100,y=620)
+
+        timer_minutos = Label(ventana_jugar,text="00",font=("Arial Black",12),bg="#161a1d",fg="white")
+        timer_minutos.place(x=150,y=620)
+
+        timer_segundos = Label(ventana_jugar,text="00",font=("Arial Black",12),bg="#161a1d",fg="white")
+        timer_segundos.place(x=200,y=620)
+
+    # Guardar datos configuración
+
+    if valor_nivel == 1:
+        a = "Facil"
+    if valor_nivel == 2:
+        a = "Intermedio"
+    if valor_nivel == 3:
+        a = "Dificil"
+
+    if valor_reloj == 4:
+        b = "Si"
+    if valor_reloj == 5:
+        b = "No"
+    if valor_reloj == 6:
+        b = "Timer"
+    
+    if valor_posicion == 7:
+        c = "Derecha"
+    if valor_posicion == 8:
+        c = "Izquierda"
+
+    archivo = open("futoshiki2021configuración.dat","w")
+
+    archivo.write("\nNivel: "+ a)
+    archivo.write("\nReloj: "+ b)
+    archivo.write("\nPosición botones: "+ c)
+
+    archivo.close()
+
+    # Crea la matriz para poner los valores a las casillas
+
     matriz_de_botones()
+
+    # Lee el archivo para saber qué valor colocar a las casillas
     archivo_partida_dificultad()
+
 
 #Funcion configuración
 
@@ -555,7 +628,7 @@ def func_config():
 
     opcion_timer = Radiobutton(ventana_conf,text="Timer",value=6,variable=reloj_id,command=señalar_reloj)
     opcion_timer.place(x=50,y=200)
-
+    
     #Posicion ventana panel de digitos  y Radiobuttons relacionados
 
     posicion = Label(ventana_conf,text="3. Posición en la ventana del panel de dígitos:", font=("Arial Black",9))
@@ -670,46 +743,150 @@ def top_10():
 
     ventana_top_10 = Toplevel()
     ventana_top_10.title("Top 10")
-    ventana_top_10.geometry("500x500")
+    ventana_top_10.geometry("600x600")
     ventana_top_10.configure(bg="#b1a7a6")
 
     #Titulo
 
-    titulo_top = Label(ventana_top_10,text="Top 10", font=("Arial Black",18),fg="red",bg="#b1a7a6")
-    titulo_top.place(x=50,y=15)
+    titulo_top = Label(ventana_top_10,text="Top 10", font=("Arial Black",40),fg="red",bg="#b1a7a6")
+    titulo_top.place(x=650,y=50)
 
     #Top nivel dificil
 
-    nivel_dificil = Label(ventana_top_10,text="NIVEL DIFICIL:",font=("Arial Black",12),bg="#b1a7a6")
-    nivel_dificil.place(x=50,y=50)
+    nivel_dificil = Label(ventana_top_10,text="NIVEL DIFICIL:",font=("Bold",12),bg="#b1a7a6")
+    nivel_dificil.place(x=50,y=30)
 
-    jugador_dificil = Label(ventana_top_10,text="JUGADOR",font=("Arial Black",12),bg="#b1a7a6")
-    jugador_dificil.place(x=350,y=50)
+    jugador_dificil = Label(ventana_top_10,text="JUGADOR",font=("Bold",12),bg="#b1a7a6")
+    jugador_dificil.place(x=350,y=30)
 
-    tiempo_dificil = Label(ventana_top_10,text="TIEMPO",font=("Arial Black",12),bg="#b1a7a6")
-    tiempo_dificil.place(x=650,y=50)
+    tiempo_dificil = Label(ventana_top_10,text="TIEMPO",font=("Bold",12),bg="#b1a7a6")
+    tiempo_dificil.place(x=450,y=30)
+
+    #Ranking jugadores_dificil
+
+
+    jugadord1 = Label(ventana_top_10,text="1: ",font=("Bold",12),bg="#b1a7a6")
+    jugadord1.place(x=350,y=60)
+
+    jugadord2 = Label(ventana_top_10,text="2: ",font=("Bold",12),bg="#b1a7a6")
+    jugadord2.place(x=350,y=80)
+
+    jugadord3 = Label(ventana_top_10,text="3: ",font=("Bold",12),bg="#b1a7a6")
+    jugadord3.place(x=350,y=100)
+
+    jugadord4 = Label(ventana_top_10,text="4: ",font=("Bold",12),bg="#b1a7a6")
+    jugadord4.place(x=350,y=120)
+
+    jugadord5 = Label(ventana_top_10,text="5: ",font=("Bold",12),bg="#b1a7a6")
+    jugadord5.place(x=350,y=140)
+
+    jugadord6 = Label(ventana_top_10,text="6: ",font=("Bold",12),bg="#b1a7a6")
+    jugadord6.place(x=350,y=160)
+
+    jugadord7 = Label(ventana_top_10,text="7: ",font=("Bold",12),bg="#b1a7a6")
+    jugadord7.place(x=350,y=180)
+
+    jugadord8 = Label(ventana_top_10,text="8: ",font=("Bold",12),bg="#b1a7a6")
+    jugadord8.place(x=350,y=200)
+
+    jugadord9 = Label(ventana_top_10,text="9: ",font=("Bold",12),bg="#b1a7a6")
+    jugadord9.place(x=350,y=220)
+
+    jugadord10 = Label(ventana_top_10,text="10: ",font=("Bold",12),bg="#b1a7a6")
+    jugadord10.place(x=350,y=240)
 
     #Top nivel intermedio
 
-    nivel_intermedio = Label(ventana_top_10,text="NIVEL INTERMEDIO:",font=("Arial Black",12),bg="#b1a7a6")
-    nivel_intermedio.place(x=50,y=250)
+    nivel_intermedio = Label(ventana_top_10,text="NIVEL INTERMEDIO:",font=("Bold",12),bg="#b1a7a6")
+    nivel_intermedio.place(x=50,y=260)
 
-    jugador_intermedio = Label(ventana_top_10,text="JUGADOR",font=("Arial Black",12),bg="#b1a7a6")
-    jugador_intermedio.place(x=350,y=250)
+    jugador_intermedio = Label(ventana_top_10,text="JUGADOR",font=("Bold",12),bg="#b1a7a6")
+    jugador_intermedio.place(x=350,y=260)
 
-    tiempo_intermedio = Label(ventana_top_10,text="TIEMPO",font=("Arial Black",12),bg="#b1a7a6")
-    tiempo_intermedio.place(x=650,y=250)
+    tiempo_intermedio = Label(ventana_top_10,text="TIEMPO",font=("Bold",12),bg="#b1a7a6")
+    tiempo_intermedio.place(x=450,y=260)
+
+    #Ranking jugadores intermedio
+
+    jugadori1 = Label(ventana_top_10,text="1: ",font=("Bold",12),bg="#b1a7a6")
+    jugadori1.place(x=350,y=280)
+
+    jugadori2 = Label(ventana_top_10,text="2: ",font=("Bold",12),bg="#b1a7a6")
+    jugadori2.place(x=350,y=300)
+
+    jugadori3 = Label(ventana_top_10,text="3: ",font=("Bold",12),bg="#b1a7a6")
+    jugadori3.place(x=350,y=320)
+
+    jugadori4 = Label(ventana_top_10,text="4: ",font=("Bold",12),bg="#b1a7a6")
+    jugadori4.place(x=350,y=340)
+
+    jugadori5 = Label(ventana_top_10,text="5:",font=("Bold",12),bg="#b1a7a6")
+    jugadori5.place(x=350,y=360)
+
+    jugadori6 = Label(ventana_top_10,text="6: ",font=("Bold",12),bg="#b1a7a6")
+    jugadori6.place(x=350,y=380)
+
+    jugadori7 = Label(ventana_top_10,text="7:",font=("Bold",12),bg="#b1a7a6")
+    jugadori7.place(x=350,y=400)
+
+    jugadori8 = Label(ventana_top_10,text="8: ",font=("Bold",12),bg="#b1a7a6")
+    jugadori8.place(x=350,y=420)
+
+    jugadori9 = Label(ventana_top_10,text="9: ",font=("Bold",12),bg="#b1a7a6")
+    jugadori9.place(x=350,y=440)
+
+    jugadori10 = Label(ventana_top_10,text="10: ",font=("Bold",12),bg="#b1a7a6")
+    jugadori10.place(x=350,y=460)
 
     #Top nivel fácil
 
-    nivel_facil = Label(ventana_top_10,text="NIVEL FÁCIL:",font=("Arial Black",12),bg="#b1a7a6")
-    nivel_facil.place(x=50,y=450)
+    nivel_facil = Label(ventana_top_10,text="NIVEL FÁCIL:",font=("Bold",12),bg="#b1a7a6")
+    nivel_facil.place(x=50,y=480)
 
-    jugador_facil = Label(ventana_top_10,text="JUGADOR",font=("Arial Black",12),bg="#b1a7a6")
-    jugador_facil.place(x=350,y=450)
+    jugador_facil = Label(ventana_top_10,text="JUGADOR",font=("Bold",12),bg="#b1a7a6")
+    jugador_facil.place(x=350,y=480)
 
-    tiempo_facil = Label(ventana_top_10,text="TIEMPO",font=("Arial Black",12),bg="#b1a7a6")
-    tiempo_facil.place(x=650,y=450)
+    tiempo_facil = Label(ventana_top_10,text="TIEMPO",font=("Bold",12),bg="#b1a7a6")
+    tiempo_facil.place(x=450,y=480)
+
+    #Ranking jugadores intermedio
+
+    jugadorf1 = Label(ventana_top_10,text="1: ",font=("Bold",12),bg="#b1a7a6")
+    jugadorf1.place(x=350,y=500)
+
+    jugadorf2 = Label(ventana_top_10,text="2: ",font=("Bold",12),bg="#b1a7a6")
+    jugadorf2.place(x=350,y=520)
+
+    jugadorf3 = Label(ventana_top_10,text="3: ",font=("Bold",12),bg="#b1a7a6")
+    jugadorf3.place(x=350,y=540)
+
+    jugadorf4 = Label(ventana_top_10,text="4: ",font=("Bold",12),bg="#b1a7a6")
+    jugadorf4.place(x=350,y=560)
+
+    jugadorf5 = Label(ventana_top_10,text="5: ",font=("Bold",12),bg="#b1a7a6")
+    jugadorf5.place(x=350,y=580)
+
+    jugadorf6 = Label(ventana_top_10,text="6: ",font=("Bold",12),bg="#b1a7a6")
+    jugadorf6.place(x=350,y=600)
+
+    jugadorf7 = Label(ventana_top_10,text="7: ",font=("Bold",12),bg="#b1a7a6")
+    jugadorf7.place(x=350,y=620)
+
+    jugadorf8 = Label(ventana_top_10,text="8: ",font=("Bold",12),bg="#b1a7a6")
+    jugadorf8.place(x=350,y=640)
+
+    jugadorf9 = Label(ventana_top_10,text="9: ",font=("Bold",12),bg="#b1a7a6")
+    jugadorf9.place(x=350,y=660)
+
+    jugadorf10 = Label(ventana_top_10,text="10: ",font=("Bold",12),bg="#b1a7a6")
+    jugadorf10.place(x=350,y=680)
+
+    #Listas
+
+    dificil = [[],[],[],[],[],[],[],[],[],[]]
+    intermedio = [[],[],[],[],[],[],[],[],[],[]]
+    facil = [[],[],[],[],[],[],[],[],[],[]]
+    
 
 #Función boton iniciar juego
 
@@ -720,6 +897,7 @@ def iniciar_juego():
     nombre_jugador = str(entrada_nombre_jugador.get())
 
     if nombre_jugador != "" and len(nombre_jugador) < 20:
+        
         global timer
         global timer_horas, timer_minutos, timer_segundos, timer, felicidades
 
@@ -739,38 +917,15 @@ def iniciar_juego():
         boton_numero_4.config(state="normal")
         boton_numero_5.config(state="normal")
 
-
         if valor_reloj == 6:
 
-            timer = Label(ventana_jugar,text="Timer",font=("Arial Black",12),fg="#660708",bg="#161a1d")
-            timer.place(x=140,y=590)
-
-            timer_horas = Label(ventana_jugar,text="00",font=("Arial Black",12),bg="#161a1d",fg="white")
-            timer_horas.place(x=100,y=620)
-
-            timer_minutos = Label(ventana_jugar,text="00",font=("Arial Black",12),bg="#161a1d",fg="white")
-            timer_minutos.place(x=150,y=620)
-
-            timer_segundos = Label(ventana_jugar,text="00",font=("Arial Black",12),bg="#161a1d",fg="white")
-            timer_segundos.place(x=200,y=620)
-
             timer.after(1000,timer_funcion)
+            cambio_timer.config(state="disabled")
 
         if valor_reloj == 4:
 
-            timer = Label(ventana_jugar,text="Reloj",font=("Arial Black",12),fg="#660708",bg="#161a1d")
-            timer.place(x=140,y=590)
-
-            timer_horas = Label(ventana_jugar,text="00",font=("Arial Black",12),bg="#161a1d",fg="white")
-            timer_horas.place(x=100,y=620)
-
-            timer_minutos = Label(ventana_jugar,text="00",font=("Arial Black",12),bg="#161a1d",fg="white")
-            timer_minutos.place(x=150,y=620)
-
-            timer_segundos = Label(ventana_jugar,text="00",font=("Arial Black",12),bg="#161a1d",fg="white")
-            timer_segundos.place(x=200,y=620)
-
             timer.after(1000,reloj)
+
         if valor_reloj == 5:
             pass
     else:
@@ -798,6 +953,23 @@ def terminar_juego():
     
     if respuesta == True:
         ventana_jugar.state(newstate="withdraw")
+        timer.destroy()
+        global seg_aux,min_aux,hora_aux 
+        global seg_timer, min_timer, hora_timer
+
+        if valor_reloj == 6: 
+
+            seg_timer = seg_aux
+            min_timer = min_aux
+            hora_timer = hora_aux
+
+            timer_aux = Label(ventana_jugar,text="Timer",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+            timer_aux.place(x=140,y=590)
+
+            timer_horas.config(text=hora_aux)
+            timer_minutos.config(text=min_aux)
+            timer_segundos.config(text=seg_aux)
+            
         func_jugar()
     else:
         pass
@@ -805,12 +977,87 @@ def terminar_juego():
 #Funcion borrar juego
 
 def borrar_juego():
+
+    global seg_reloj,min_reloj,hora_reloj
+    global seg_aux,min_aux,hora_aux
     
     respuesta = messagebox.askyesno("Terminar juego","¿ESTÁ SEGURO DE BORRAR EL JUEGO")
 
     if respuesta == False:
         pass
     else:
+
+        if valor_reloj == 4:
+            timer.destroy()
+            seg_reloj = 0
+            min_reloj = 0
+            hora_reloj = 0
+
+            timer_aux = Label(ventana_jugar,text="Reloj",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+            timer_aux.place(x=140,y=590)
+
+            timer_horas.config(text="00")
+            timer_minutos.config(text="00")
+            timer_segundos.config(text="00")
+
+            boton_iniciar.config(state="normal")
+            boton_cargar_juego.config(state="normal")
+
+            boton_guardar_juego.config(state="disabled")
+            boton_borrar_juego.config(state="disabled")
+            boton_terminar.config(state="disabled")
+            boton_borrar_paso.config(state="disabled")
+
+            boton_numero_1.config(state="disabled")
+            boton_numero_2.config(state="disabled")
+            boton_numero_3.config(state="disabled")
+            boton_numero_4.config(state="disabled")
+            boton_numero_5.config(state="disabled")
+
+            boton_numero_1.config(bg="#a4161a")
+            boton_numero_2.config(bg="#a4161a")
+            boton_numero_3.config(bg="#a4161a")
+            boton_numero_4.config(bg="#a4161a")
+            boton_numero_5.config(bg="#a4161a")
+        
+        if valor_reloj == 6:
+            timer.destroy()
+
+            global seg_aux,min_aux,hora_aux 
+            global seg_timer, min_timer, hora_timer
+
+            seg_timer = seg_aux
+            min_timer = min_aux
+            hora_timer = hora_aux
+
+            timer_aux = Label(ventana_jugar,text="Timer",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+            timer_aux.place(x=140,y=590)
+
+            timer_horas.config(text=hora_aux)
+            timer_minutos.config(text=min_aux)
+            timer_segundos.config(text=seg_aux)
+
+            boton_iniciar.config(state="normal")
+            boton_cargar_juego.config(state="normal")
+
+            boton_guardar_juego.config(state="disabled")
+            boton_borrar_juego.config(state="disabled")
+            boton_terminar.config(state="disabled")
+            boton_borrar_paso.config(state="disabled")
+
+            boton_numero_1.config(state="disabled")
+            boton_numero_2.config(state="disabled")
+            boton_numero_3.config(state="disabled")
+            boton_numero_4.config(state="disabled")
+            boton_numero_5.config(state="disabled")
+
+            boton_numero_1.config(bg="#a4161a")
+            boton_numero_2.config(bg="#a4161a")
+            boton_numero_3.config(bg="#a4161a")
+            boton_numero_4.config(bg="#a4161a")
+            boton_numero_5.config(bg="#a4161a")
+
+
         while len(matriz_pila) > 0:
             ultima_jugada = matriz_pila.pop()
             matriz_botones[ultima_jugada[0]][ultima_jugada[1]].config(text="")
@@ -948,10 +1195,12 @@ def cambio_cuadricula_0x0():
                 valores_botones[0][0] = 0
                 valores_botones_vertical[0][0] = 0
                 matriz_pila.pop()
-        
+       
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -990,6 +1239,8 @@ def cambio_cuadricula_0x1():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -1037,6 +1288,8 @@ def cambio_cuadricula_0x2():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -1081,6 +1334,8 @@ def cambio_cuadricula_0x3():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
         
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -1120,6 +1375,8 @@ def cambio_cuadricula_0x4():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -1183,6 +1440,8 @@ def cambio_cuadricula_1x0():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -1220,6 +1479,8 @@ def cambio_cuadricula_1x1():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -1249,6 +1510,8 @@ def cambio_cuadricula_1x2():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -1294,6 +1557,8 @@ def cambio_cuadricula_1x3():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -1331,6 +1596,8 @@ def cambio_cuadricula_1x4():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -1393,6 +1660,8 @@ def cambio_cuadricula_2x0():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -1429,6 +1698,8 @@ def cambio_cuadricula_2x1():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -1450,6 +1721,8 @@ def cambio_cuadricula_2x2():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -1503,6 +1776,8 @@ def cambio_cuadricula_2x3():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
 
 
     except:
@@ -1557,6 +1832,8 @@ def cambio_cuadricula_2x4():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -1611,6 +1888,8 @@ def cambio_cuadricula_3x0():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -1655,6 +1934,8 @@ def cambio_cuadricula_3x1():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -1683,6 +1964,8 @@ def cambio_cuadricula_3x2():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -1719,6 +2002,8 @@ def cambio_cuadricula_3x3():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -1747,6 +2032,8 @@ def cambio_cuadricula_3x4():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -1778,6 +2065,8 @@ def cambio_cuadricula_4x0():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -1815,6 +2104,8 @@ def cambio_cuadricula_4x1():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -1859,6 +2150,8 @@ def cambio_cuadricula_4x2():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -1912,6 +2205,8 @@ def cambio_cuadricula_4x3():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
         
 
     except:
@@ -1942,6 +2237,8 @@ def cambio_cuadricula_4x4():
         if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
+            ventana_jugar.state(newstate="withdraw")
+            func_jugar()
 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -1949,6 +2246,8 @@ def cambio_cuadricula_4x4():
 # Función Timer
 
 def aceptar_configuracion():
+
+    import pickle
 
     global seg_timer
     global min_timer 
@@ -1968,18 +2267,21 @@ def aceptar_configuracion():
                 min_aux = int(timer_entrada_minutos.get())
                 hora_aux = int(timer_entrada_horas.get())
 
-            
-                if seg_timer > 0 or min_timer > 0 or hora_timer > 0:
-                    ventana_conf.state(newstate="withdraw")
-                    ventana_principal.state(newstate="normal")
+                if seg_timer <= 59 and min_timer <= 59 and hora_timer <= 2:
+
+                     if seg_timer > 0 or min_timer > 0 or hora_timer > 0:
+                        ventana_conf.state(newstate="withdraw")
+                        ventana_principal.state(newstate="normal")
+                     else:
+                        messagebox.showinfo(title="Timer",message="Para el uso del timer alguna de sus partes debe ser mayor a cero")
                 else:
-                    messagebox.showinfo(title="Timer",message="Para el uso del timer alguna de sus partes debe ser mayor a cero")
+                    messagebox.showinfo(title="Timer",message="Limites timer: Minutos y segundos = 59, Horas = 2")
         except:
             messagebox.showinfo(title="Timer",message="Verifique los valores del timer esten completos")
     else:
         ventana_conf.state(newstate="withdraw")
         ventana_principal.state(newstate="normal")
-        
+   
 def reloj():
     global seg_reloj,min_reloj,hora_reloj
 
@@ -2000,6 +2302,7 @@ def reloj():
 def timer_funcion():
     global seg_timer,min_timer,hora_timer
     global seg_aux,min_aux,hora_aux
+    global seg_reloj,min_reloj,hora_reloj
 
     seg_timer -= 1
 
@@ -2022,20 +2325,24 @@ def timer_funcion():
 
                         if respuesta == True:
 
-                            seg_aux += 1
-                            if seg_aux == 60:
-                                seg_aux = 0
-                                min_aux +=1
-                                if min_aux == 60:
-                                    min_aux = 0
-                                    hora_aux +=1
+                            seg_timer = -1
+                            hora_timer = -1
+                            min_timer = -1
+
+                            seg_reloj = seg_aux
+                            min_reloj = min_aux
+                            hora_reloj = hora_aux
+
+                            reloj()
                         else:
                             ventana_jugar.state(newstate="withdraw")
                             func_jugar()
     if seg_timer >= 0:
         timer_segundos.config(text=seg_timer)
-    timer_horas.config(text=hora_timer)
-    timer_minutos.config(text=min_timer)
+    if hora_timer >= 0:
+        timer_horas.config(text=hora_timer)
+    if min_timer >= 0:
+        timer_minutos.config(text=min_timer)
     timer.after(1000,timer_funcion)
 # Archivos
 
@@ -2045,7 +2352,7 @@ def archivo_partida_dificultad():
 
     global matriz_botones, valores_botones, indice, subindice
 
-    f = open("prueba.dat","wb")
+    f = open("futoshiki2021partidas.dat","wb")
     pickle.dump([
                 [(("4",0,1),("1",0,3),("2",2,1),("5",2,3),("3",2,4),("1",3,1),("2",3,3),("5",4,4)),
                 (("2",0,3),("2",1,0),("1",1,2),("3",1,3),("3",2,2),("1",2,3),("1",4,0),("5",4,4)),
@@ -2066,7 +2373,7 @@ def archivo_partida_dificultad():
                 ],f)
     f.close()
 
-    f = open("prueba.dat","rb")
+    f = open("futoshiki2021partidas.dat","rb")
     while True:
         try:
             x = pickle.load(f)
@@ -2103,6 +2410,70 @@ def archivo_partida_dificultad():
 
 def casilla_fija():
     messagebox.showinfo(title="Timer",message="JUGADA NO ES VÁLIDA PORQUE ESTE ES UN DÍGITO FIJO")
+
+
+def cambiar_valores_timer_jugar():
+
+    global seg_timer,min_timer,hora_timer
+
+    global seg_aux
+    global min_aux
+    global hora_aux
+
+    try:
+            seg_timer = int(cambio_segundos.get())
+            min_timer = int(cambio_minutos.get())
+            hora_timer = int(cambio_horas.get())
+
+            seg_aux = int(cambio_segundos.get())
+            min_aux = int(cambio_minutos.get())
+            hora_aux = int(cambio_horas.get())
+
+            if seg_timer <= 59 and min_timer <= 59 and hora_timer <= 2:
+
+                if seg_timer > 0 or min_timer > 0 or hora_timer > 0:
+                    pass
+                else:
+                    messagebox.showinfo(title="Timer",message="Para el uso del timer alguna de sus partes debe ser mayor a cero")
+            else:
+                messagebox.showinfo(title="Timer",message="Limites timer: Minutos y segundos = 59, Horas = 2")
+                
+            timer_horas.config(text=hora_timer)
+            timer_minutos.config(text=min_timer)
+            timer_segundos.config(text=seg_timer) 
+
+    except:
+        messagebox.showinfo(title="Timer",message="Verifique los valores del timer esten completos")
+
+def ventana_valores_timer():
+
+    global cambio_horas,cambio_minutos, cambio_segundos
+    global boton_aceptar_cambio
+
+    ventana_ajustar_timer = Toplevel()
+    ventana_ajustar_timer.title("Ajustar Timer")
+    ventana_ajustar_timer.geometry("200x200")
+
+    cambio_segundos = Entry(ventana_ajustar_timer,width=4)
+    cambio_segundos.place(x=120,y=50)
+
+    cambio_minutos = Entry(ventana_ajustar_timer,width=4)
+    cambio_minutos.place(x=70,y=50)
+
+    cambio_horas = Entry(ventana_ajustar_timer,width=4)
+    cambio_horas.place(x=20,y=50)
+
+    etiqueta_cambio_seg = Label(ventana_ajustar_timer,text="S")
+    etiqueta_cambio_seg.place(x=125,y=80)
+
+    etiqueta_cambio_min = Label(ventana_ajustar_timer,text="M")
+    etiqueta_cambio_min.place(x=75,y=80)
+
+    etiqueta_cambio_hora = Label(ventana_ajustar_timer,text="H")
+    etiqueta_cambio_hora.place(x=25,y=80)
+
+    boton_aceptar_cambio = Button(ventana_ajustar_timer, text = "Aceptar",command=cambiar_valores_timer_jugar)
+    boton_aceptar_cambio.place(x=61,y=100)
 
 def matriz_de_botones():
 
@@ -2225,4 +2596,6 @@ Menu_principal.add_cascade(label = "Salir",command=func_salir)
 
 
 ventana_principal.mainloop()
+
+
                     
