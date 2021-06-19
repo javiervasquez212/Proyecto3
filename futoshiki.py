@@ -17,6 +17,10 @@ valor_reloj = 4
 valor_posicion = 7
 bandera = False
 
+lista_top_10_fácil = []
+lista_top_10_intermedio = []
+lista_top_10_dificil = []
+
 #Funciones principales
 
 def func_jugar(): 
@@ -275,6 +279,8 @@ def func_jugar():
 
     casilla_0x0 = Button(ventana_jugar,height = 2, width = 5,text="", command=cambio_cuadricula_0x0)
     casilla_0x0.place(x=350,y=200)
+
+    casilla_0x0.after(1000,finalizar_juego)
 
     casilla_0x1 = Button(ventana_jugar,height = 2, width = 5, command=cambio_cuadricula_0x1)
     casilla_0x1.place(x=420,y=200)
@@ -742,7 +748,7 @@ def top_10():
 
     #Creación de la ventana
 
-    global ventana_top_10
+    global ventana_top_10, lista_top_10_fácil
 
     timer.destroy()
 
@@ -890,9 +896,7 @@ def top_10():
 
     #Listas
 
-    dificil = [[],[],[],[],[],[],[],[],[],[]]
-    intermedio = [[],[],[],[],[],[],[],[],[],[]]
-    facil = [[],[],[],[],[],[],[],[],[],[]]
+    lista_top_10_fácil = []
     
 
 #Función boton iniciar juego
@@ -1215,12 +1219,6 @@ def cambio_cuadricula_0x0():
                 valores_botones[0][0] = 0
                 valores_botones_vertical[0][0] = 0
                 matriz_pila.pop()
-       
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -1256,11 +1254,7 @@ def cambio_cuadricula_0x1():
                 valores_botones_vertical[1][0] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -1305,11 +1299,7 @@ def cambio_cuadricula_0x2():
                 valores_botones_vertical[2][0] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -1351,11 +1341,7 @@ def cambio_cuadricula_0x3():
                 valores_botones_vertical[3][0] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
         
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -1390,11 +1376,7 @@ def cambio_cuadricula_0x4():
                 valores_botones_vertical[4][0] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -1455,11 +1437,7 @@ def cambio_cuadricula_1x0():
                 valores_botones_vertical[0][1] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -1494,11 +1472,7 @@ def cambio_cuadricula_1x1():
                 valores_botones_vertical[1][1] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -1525,11 +1499,7 @@ def cambio_cuadricula_1x2():
                 valores_botones_vertical[2][1] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -1572,11 +1542,7 @@ def cambio_cuadricula_1x3():
                 valores_botones_vertical[3][1] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -1611,11 +1577,7 @@ def cambio_cuadricula_1x4():
                 valores_botones_vertical[4][1] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -1675,11 +1637,7 @@ def cambio_cuadricula_2x0():
                 valores_botones_vertical[0][2] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -1713,11 +1671,7 @@ def cambio_cuadricula_2x1():
                 valores_botones_vertical[1][2] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -1736,11 +1690,7 @@ def cambio_cuadricula_2x2():
             casilla_2x2.config(text=poner_numero)
             matriz_pila.append((2,2))
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -1791,11 +1741,7 @@ def cambio_cuadricula_2x3():
                 valores_botones_vertical[3][2] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
 
 
     except:
@@ -1847,11 +1793,7 @@ def cambio_cuadricula_2x4():
                 valores_botones_vertical[4][2] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -1903,11 +1845,7 @@ def cambio_cuadricula_3x0():
                 valores_botones_vertical[0][3] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -1949,11 +1887,7 @@ def cambio_cuadricula_3x1():
                 valores_botones_vertical[1][3] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -1979,11 +1913,7 @@ def cambio_cuadricula_3x2():
                 valores_botones_vertical[2][3] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -2017,11 +1947,7 @@ def cambio_cuadricula_3x3():
                 valores_botones_vertical[3][3] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -2047,11 +1973,7 @@ def cambio_cuadricula_3x4():
                 valores_botones_vertical[4][3] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -2080,11 +2002,7 @@ def cambio_cuadricula_4x0():
                 valores_botones_vertical[0][4] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -2119,11 +2037,7 @@ def cambio_cuadricula_4x1():
                 valores_botones_vertical[1][4] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -2165,11 +2079,7 @@ def cambio_cuadricula_4x2():
                 valores_botones_vertical[2][4] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
 
@@ -2220,11 +2130,7 @@ def cambio_cuadricula_4x3():
                 valores_botones_vertical[3][4] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
         
 
     except:
@@ -2252,11 +2158,7 @@ def cambio_cuadricula_4x4():
                 valores_botones_vertical[4][4] = 0
                 matriz_pila.pop()
         
-        if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
-            and 0 not in valores_botones[4]:
-            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO")
-            ventana_jugar.state(newstate="withdraw")
-            func_jugar()
+        
 
     except:
         messagebox.showinfo(title="Casilla",message= "FALTA QUE SELECCIONE UN DÍGITO")
@@ -2406,7 +2308,7 @@ def archivo_partida_dificultad():
     indice = valor_nivel - 1
     subindice = random.randint(0,2)
 
-    for elemento in a[indice][subindice]:
+    for elemento in a[0][0]:
         if elemento[0] == "<" or elemento[0] == ">":
 
             restricciones_paralelas[elemento[1]][elemento[2]].config(text=elemento[0])
@@ -2495,6 +2397,32 @@ def ventana_valores_timer():
 
     boton_aceptar_cambio = Button(ventana_ajustar_timer, text = "Aceptar",command=cambiar_valores_timer_jugar)
     boton_aceptar_cambio.place(x=61,y=100)
+
+def finalizar_juego():
+
+    if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
+            and 0 not in valores_botones[4]:
+
+            if valor_reloj == 4:
+                tupla = (entrada_nombre_jugador.get(),hora_reloj,min_reloj,seg_reloj)
+                if valor_nivel == 1:
+                    lista_top_10_fácil.append(tupla)
+                    print(lista_top_10_fácil,"Fácil")
+                if valor_nivel == 2:
+                    lista_top_10_intermedio.append(tupla)
+                    print(lista_top_10_intermedio,"Intermedio")
+                if valor_nivel == 3:
+                    lista_top_10_dificil.append(tupla)
+                    print(lista_top_10_dificil,"Dificil")
+            if valor_reloj == 4 or valor_reloj == 6:
+                timer.destroy()
+            ventana_jugar.destroy()
+            messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO") 
+            func_jugar()
+
+    casilla_0x0.after(1000,finalizar_juego)
+
+    
 
 def matriz_de_botones():
 
