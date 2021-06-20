@@ -18,7 +18,7 @@ valor_reloj = 4
 valor_posicion = 7
 bandera = False
 
-lista_top_10_fácil = [("Javier",3),("Jamaica",1),("Juancho",4),("Pedro",2)]
+lista_top_10_fácil = [("Javier",10),("Joaquin",15),("Mauro",7),("Maritza",25)]
 lista_top_10_intermedio = []
 lista_top_10_dificil = []
 
@@ -809,6 +809,17 @@ def top_10():
     jugadord10 = Label(ventana_top_10,text="10: ",font=("Bold",12),bg="#b1a7a6")
     jugadord10.place(x=350,y=240)
 
+    matriz_jugadord10 = [jugadord1,jugadord2,jugadord3,jugadord4,jugadord5,jugadord6,jugadord7,jugadord8,jugadord9,jugadord10]
+
+    try:
+        for x,y in enumerate(orden_top_10_dificil):
+            segundos_t = y[1]%60
+            minutos_t = y[1]//60
+            horas_t = y[1]//60//60
+            matriz_jugadord10[x].config(text=(y[0],"=",horas_t,":",minutos_t,":",segundos_t))
+    except:
+        pass
+
     #Top nivel intermedio
 
     nivel_intermedio = Label(ventana_top_10,text="NIVEL INTERMEDIO:",font=("Bold",12),bg="#b1a7a6")
@@ -851,6 +862,17 @@ def top_10():
 
     jugadori10 = Label(ventana_top_10,text="10: ",font=("Bold",12),bg="#b1a7a6")
     jugadori10.place(x=350,y=460)
+
+    matriz_jugadori10 = [jugadori1,jugadori2,jugadori3,jugadori4,jugadori5,jugadori6,jugadori7,jugadori8,jugadori9,jugadori10]
+
+    try:
+        for x,y in enumerate(orden_top_10_intermedio):
+            segundos_t = y[1]%60
+            minutos_t = y[1]//60
+            horas_t = y[1]//60//60
+            matriz_jugadori10[x].config(text=(y[0],"=",horas_t,":",minutos_t,":",segundos_t))
+    except:
+        pass
 
     #Top nivel fácil
 
@@ -895,11 +917,16 @@ def top_10():
     jugadorf10 = Label(ventana_top_10,text="10: ",font=("Bold",12),bg="#b1a7a6")
     jugadorf10.place(x=350,y=680)
 
-    #Listas
-
-    lista_top_10_fácil = []
+    matriz_jugadorf10 = [jugadorf1,jugadorf2,jugadorf3,jugadorf4,jugadorf5,jugadorf6,jugadorf7,jugadorf8,jugadorf9,jugadorf10]
     
-
+    try:
+        for x,y in enumerate(orden_top_10_fácil):
+            segundos_t = y[1]%60
+            minutos_t = y[1]//60
+            horas_t = y[1]//60//60
+            matriz_jugadorf10[x].config(text=(y[0],"=",horas_t,":",minutos_t,":",segundos_t))
+    except:
+        pass
 #Función boton iniciar juego
 
 def salir_top10():
@@ -2402,54 +2429,70 @@ def ventana_valores_timer():
     boton_aceptar_cambio.place(x=61,y=100)
 
 def finalizar_juego():
+    global orden_top_10_fácil, orden_top_10_intermedio, orden_top_10_dificil
 
-    
 
     if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
             and 0 not in valores_botones[4]:
 
             if valor_reloj == 4:
+
                 tupla = (entrada_nombre_jugador.get(),hora_reloj*3600 +min_reloj*60 + seg_reloj)
+
                 if valor_nivel == 1:
                     if len(lista_top_10_fácil) < 10:
                         lista_top_10_fácil.append(tupla)
                         orden_top_10_fácil = sorted(lista_top_10_fácil, key=lambda c: c[1])
-                    
+
+                        print(orden_top_10_fácil,"Facil")
 
                     elif len(lista_top_10_fácil) == 10:
                         for elemento in lista_top_10_fácil:
                             if tupla[1] < elemento[1]:
-
                                 orden_top_10_fácil = sorted(lista_top_10_fácil, key=lambda c: c[1])
                                 orden_top_10_fácil.pop()
                                 orden_top_10_fácil.append(tupla)
-                                top_10_1_facil = sorted(orden_top_10_fácil, key=lambda c: c[1])
+                                orden_top_10_fácil = sorted(orden_top_10_fácil, key=lambda c: c[1])
+                                break
+
+                                print(orden_top_10_fácil,"Facil")
                                 
                 if valor_nivel == 2:
                     if len(lista_top_10_intermedio) < 10:
                         lista_top_10_intermedio.append(tupla)
                         orden_top_10_intermedio = sorted(lista_top_10_intermedio, key=lambda c: c[1])
+
+                        print(orden_top_10_intermedio,"Intermedio")
                 
-                elif len(lista_top_10_intermedio) == 10:
+                    elif len(lista_top_10_intermedio) == 10:
+                        
                         for elemento in lista_top_10_intermedio:
                             if tupla[1] < elemento[1]:
                                 orden_top_10_intermedio = sorted(lista_top_10_intermedio, key=lambda c: c[1])
                                 orden_top_10_intermedio.pop()
                                 orden_top_10_intermedio.append(tupla)
-                                top_10_1_intermedio = sorted(orden_top_10_intermedio, key=lambda c: c[1])
+                                orden_top_10_intermedio = sorted(orden_top_10_intermedio, key=lambda c: c[1])
+                                break
+
+                                print(orden_top_10_intermedio,"Intermedio")
                         
                 if valor_nivel == 3:
                     if len(lista_top_10_dificil) < 10:
                         lista_top_10_dificil.append(tupla)
                         orden_top_10_dificil = sorted(lista_top_10_dificil, key=lambda c: c[1])
+
+                        print(orden_top_10_dificil,"dificil")
                 
-                elif len(lista_top_10_dificil) == 10:
+                    elif len(lista_top_10_dificil) == 10:
                         for elemento in lista_top_10_dificil:
-                            if tupla[1] < elemento[1]:
+                            if tupla[1] <= elemento[1]:
                                 orden_top_10_dificil = sorted(lista_top_10_dificil, key=lambda c: c[1])
                                 orden_top_10_dificil.pop()
                                 orden_top_10_dificil.append(tupla)
-                                top_10_1_dificil = sorted(orden_top_10_dificil, key=lambda c: c[1])
+                                orden_top_10_dificil = sorted(orden_top_10_dificil, key=lambda c: c[1])
+                                break
+
+                                print(orden_top_10_dificil,"dificil")
                         
             if valor_reloj == 4 or valor_reloj == 6:
                 timer.destroy()
@@ -2462,33 +2505,44 @@ def finalizar_juego():
                     if len(lista_top_10_fácil) < 10:
                         lista_top_10_fácil.append(tupla)
                         orden_top_10_fácil = sorted(lista_top_10_fácil, key=lambda c: c[1])
-                
-                elif len(lista_top_10_fácil) == 10:
-                        for elemento in lista_top_10_fácil:
-                            if tupla[1] < elemento[1]:
 
-                                orden_top_10_fácil = sorted(lista_top_10_fácil, key=lambda c: c[1])
-                                orden_top_10_fácil.pop()
-                                orden_top_10_fácil.append(tupla)
-                                top_10_1_facil = sorted(orden_top_10_fácil, key=lambda c: c[1])
+                        print(orden_top_10_fácil,"facil")
+                
+                    elif len(lista_top_10_fácil) == 10:
+                            for elemento in lista_top_10_fácil:
+                                if tupla[1] < elemento[1]:
+
+                                    orden_top_10_fácil = sorted(lista_top_10_fácil, key=lambda c: c[1])
+                                    orden_top_10_fácil.pop()
+                                    orden_top_10_fácil.append(tupla)
+                                    orden_top_10_fácil = sorted(orden_top_10_fácil, key=lambda c: c[1])
+                                    break
+                                    
+                                    print(orden_top_10_fácil,"facil")
             
                 if valor_nivel == 2:
                     if len(lista_top_10_intermedio) < 10:
                         lista_top_10_intermedio.append(tupla)
                         orden_top_10_intermedio = sorted(lista_top_10_intermedio, key=lambda c: c[1])
+
+                        print(orden_top_10_intermedio,"intermedio")
                 
-                elif len(lista_top_10_intermedio) == 10:
-                        for elemento in lista_top_10_intermedio:
-                            if tupla[1] < elemento[1]:
-                                orden_top_10_intermedio = sorted(lista_top_10_intermedio, key=lambda c: c[1])
-                                orden_top_10_intermedio.pop()
-                                orden_top_10_intermedio.append(tupla)
-                                top_10_1_intermedio = sorted(orden_top_10_intermedio, key=lambda c: c[1])
+                    elif len(lista_top_10_intermedio) == 10:
+                            for elemento in lista_top_10_intermedio:
+                                if tupla[1] < elemento[1]:
+                                    orden_top_10_intermedio = sorted(lista_top_10_intermedio, key=lambda c: c[1])
+                                    orden_top_10_intermedio.pop()
+                                    orden_top_10_intermedio.append(tupla)
+                                    orden_top_10_intermedio = sorted(orden_top_10_intermedio, key=lambda c: c[1])
+                                    break
+                                    print(orden_top_10_intermedio,"intermdio")
                     
                 if valor_nivel == 3:
                     if len(lista_top_10_dificil) < 10:
                         lista_top_10_dificil.append(tupla)
                         orden_top_10_dificil = sorted(lista_top_10_dificil, key=lambda c: c[1])
+
+                        print(orden_top_10_dificil,"dificil")
                     
                     elif len(lista_top_10_dificil) == 10:
                         for elemento in lista_top_10_dificil:
@@ -2496,7 +2550,10 @@ def finalizar_juego():
                                 orden_top_10_dificil = sorted(lista_top_10_dificil, key=lambda c: c[1])
                                 orden_top_10_dificil.pop()
                                 orden_top_10_dificil.append(tupla)
-                                top_10_1_dificil = sorted(orden_top_10_dificil, key=lambda c: c[1])
+                                orden_top_10_dificil = sorted(orden_top_10_dificil, key=lambda c: c[1])
+                                break
+
+                                print(orden_top_10_dificil,"dificil")
                         
             ventana_jugar.destroy()
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO") 
