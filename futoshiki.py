@@ -18,7 +18,7 @@ valor_reloj = 4
 valor_posicion = 7
 bandera = False
 
-lista_top_10_fácil = [("Javier",10),("Joaquin",15),("Mauro",7),("Maritza",25)]
+lista_top_10_fácil = []
 lista_top_10_intermedio = []
 lista_top_10_dificil = []
 
@@ -222,7 +222,7 @@ def func_jugar():
     boton_cargar_juego.place(x=470,y=590)
 
     boton_guardar_juego = Button(ventana_jugar,text="GUARDAR JUEGO",font=("Arial Black",12),bg="#b1a7a6",height = 1, width = 15,\
-    state="disabled")
+    state="disabled",command=guardar_juego)
     boton_guardar_juego.place(x=285,y=590)
     
     #Boton regresar menu principal
@@ -1122,7 +1122,63 @@ def borrar_juego():
 #Funcion guardar juego
 
 def guardar_juego():
-    pass
+    import pickle
+
+    if valor_reloj == 6:
+        z = open("futoshiki2021juegoactual.dat","wb")
+        pickle.dump([
+                     [valor_nivel,valor_reloj,valor_posicion],
+                     [seg_timer,min_timer,hora_timer],
+                     [entrada_nombre_jugador.get()],[valores_botones]],z)
+
+        z.close()
+
+        z = open("futoshiki2021juegoactual.dat","rb")
+        while True:
+            try:
+                x = pickle.load(z)
+                print(x)
+            except EOFError:
+                break
+        z.close()
+
+    if valor_reloj == 4:
+        z = open("futoshiki2021juegoactual.dat","wb")
+        pickle.dump([
+                     [valor_nivel,valor_reloj,valor_posicion],
+                     [seg_reloj,min_reloj,hora_reloj],
+                     [entrada_nombre_jugador.get()],
+                     [valores_botones]],z)
+
+        z.close()
+
+        z = open("futoshiki2021juegoactual.dat","rb")
+        while True:
+            try:
+                x = pickle.load(z)
+                print(x)
+            except EOFError:
+                break
+        z.close()
+    
+    if valor_reloj == 5:
+        z = open("futoshiki2021juegoactual.dat","wb")
+        pickle.dump([
+                     [valor_nivel,valor_reloj,valor_posicion],
+                     [entrada_nombre_jugador.get()],
+                     [valores_botones]],z)
+
+        z.close()
+
+        z = open("futoshiki2021juegoactual.dat","rb")
+        while True:
+            try:
+                x = pickle.load(z)
+                print(x)
+            except EOFError:
+                break
+        z.close()
+
 
 #Funcion cargar_juego
 
@@ -2303,7 +2359,7 @@ def archivo_partida_dificultad():
     import pickle
     import random
 
-    global matriz_botones, valores_botones, indice, subindice
+    global matriz_botones, valores_botones, indice, subindice, indices_juego
 
     f = open("futoshiki2021partidas.dat","wb")
     pickle.dump([
@@ -2336,7 +2392,11 @@ def archivo_partida_dificultad():
     f.close()
 
     indice = valor_nivel - 1
-    subindice = random.randint(0,2)
+
+    numero_random = random.randint(0,2)
+    subindice = numero_random
+
+    indices_juego = (indice,subindice)
 
     for elemento in a[0][0]:
         if elemento[0] == "<" or elemento[0] == ">":
@@ -2351,7 +2411,6 @@ def archivo_partida_dificultad():
             signo_restricciones_verticales[elemento[1]][elemento[2]] = elemento[0]
 
         else:
-
             matriz_botones[elemento[1]][elemento[2]].config(text=elemento[0])
             matriz_botones[elemento[1]][elemento[2]].config(command=casilla_fija)
 
@@ -2430,6 +2489,7 @@ def ventana_valores_timer():
 
 def finalizar_juego():
     global orden_top_10_fácil, orden_top_10_intermedio, orden_top_10_dificil
+    global seg_timer,min_timer,hora_timer
 
 
     if 0 not in valores_botones[0] and 0 not in valores_botones[1] and 0 not in valores_botones[2] and 0 not in valores_botones[3]\
@@ -2444,7 +2504,6 @@ def finalizar_juego():
                         lista_top_10_fácil.append(tupla)
                         orden_top_10_fácil = sorted(lista_top_10_fácil, key=lambda c: c[1])
 
-                        print(orden_top_10_fácil,"Facil")
 
                     elif len(lista_top_10_fácil) == 10:
                         for elemento in lista_top_10_fácil:
@@ -2455,14 +2514,14 @@ def finalizar_juego():
                                 orden_top_10_fácil = sorted(orden_top_10_fácil, key=lambda c: c[1])
                                 break
 
-                                print(orden_top_10_fácil,"Facil")
+                                
                                 
                 if valor_nivel == 2:
                     if len(lista_top_10_intermedio) < 10:
                         lista_top_10_intermedio.append(tupla)
                         orden_top_10_intermedio = sorted(lista_top_10_intermedio, key=lambda c: c[1])
 
-                        print(orden_top_10_intermedio,"Intermedio")
+                        (orden_top_10_intermedio,"Intermedio")
                 
                     elif len(lista_top_10_intermedio) == 10:
                         
@@ -2474,14 +2533,14 @@ def finalizar_juego():
                                 orden_top_10_intermedio = sorted(orden_top_10_intermedio, key=lambda c: c[1])
                                 break
 
-                                print(orden_top_10_intermedio,"Intermedio")
+                                
                         
                 if valor_nivel == 3:
                     if len(lista_top_10_dificil) < 10:
                         lista_top_10_dificil.append(tupla)
                         orden_top_10_dificil = sorted(lista_top_10_dificil, key=lambda c: c[1])
 
-                        print(orden_top_10_dificil,"dificil")
+                        (orden_top_10_dificil,"dificil")
                 
                     elif len(lista_top_10_dificil) == 10:
                         for elemento in lista_top_10_dificil:
@@ -2492,11 +2551,7 @@ def finalizar_juego():
                                 orden_top_10_dificil = sorted(orden_top_10_dificil, key=lambda c: c[1])
                                 break
 
-                                print(orden_top_10_dificil,"dificil")
-                        
-            if valor_reloj == 4 or valor_reloj == 6:
-                timer.destroy()
-
+                                
             if valor_reloj == 6:
                 final = time.time()
                 tiempo = round(final-inicio)
@@ -2506,7 +2561,7 @@ def finalizar_juego():
                         lista_top_10_fácil.append(tupla)
                         orden_top_10_fácil = sorted(lista_top_10_fácil, key=lambda c: c[1])
 
-                        print(orden_top_10_fácil,"facil")
+                        (orden_top_10_fácil,"facil")
                 
                     elif len(lista_top_10_fácil) == 10:
                             for elemento in lista_top_10_fácil:
@@ -2517,15 +2572,13 @@ def finalizar_juego():
                                     orden_top_10_fácil.append(tupla)
                                     orden_top_10_fácil = sorted(orden_top_10_fácil, key=lambda c: c[1])
                                     break
-                                    
-                                    print(orden_top_10_fácil,"facil")
             
                 if valor_nivel == 2:
                     if len(lista_top_10_intermedio) < 10:
                         lista_top_10_intermedio.append(tupla)
                         orden_top_10_intermedio = sorted(lista_top_10_intermedio, key=lambda c: c[1])
 
-                        print(orden_top_10_intermedio,"intermedio")
+                        (orden_top_10_intermedio,"intermedio")
                 
                     elif len(lista_top_10_intermedio) == 10:
                             for elemento in lista_top_10_intermedio:
@@ -2535,14 +2588,14 @@ def finalizar_juego():
                                     orden_top_10_intermedio.append(tupla)
                                     orden_top_10_intermedio = sorted(orden_top_10_intermedio, key=lambda c: c[1])
                                     break
-                                    print(orden_top_10_intermedio,"intermdio")
+                                    
                     
                 if valor_nivel == 3:
                     if len(lista_top_10_dificil) < 10:
                         lista_top_10_dificil.append(tupla)
                         orden_top_10_dificil = sorted(lista_top_10_dificil, key=lambda c: c[1])
 
-                        print(orden_top_10_dificil,"dificil")
+                        (orden_top_10_dificil,"dificil")
                     
                     elif len(lista_top_10_dificil) == 10:
                         for elemento in lista_top_10_dificil:
@@ -2552,8 +2605,43 @@ def finalizar_juego():
                                 orden_top_10_dificil.append(tupla)
                                 orden_top_10_dificil = sorted(orden_top_10_dificil, key=lambda c: c[1])
                                 break
+                if valor_reloj == 4:
+                    timer.destroy()
 
-                                print(orden_top_10_dificil,"dificil")
+                elif valor_reloj == 6:
+                    timer.destroy()
+
+                    seg_timer = seg_aux
+                    min_timer = min_aux
+                    hora_timer = hora_aux
+
+                    timer_aux = Label(ventana_jugar,text="Timer",font=("Arial Black",12),fg="#660708",bg="#161a1d")
+                    timer_aux.place(x=140,y=590)
+
+                    timer_horas.config(text=hora_aux)
+                    timer_minutos.config(text=min_aux)
+                    timer_segundos.config(text=seg_aux)
+                    
+                    boton_iniciar.config(state="normal")
+                    boton_cargar_juego.config(state="normal")
+
+                    boton_guardar_juego.config(state="disabled")
+                    boton_borrar_juego.config(state="disabled")
+                    boton_terminar.config(state="disabled")
+                    boton_borrar_paso.config(state="disabled")
+
+                    boton_numero_1.config(state="disabled")
+                    boton_numero_2.config(state="disabled")
+                    boton_numero_3.config(state="disabled")
+                    boton_numero_4.config(state="disabled")
+                    boton_numero_5.config(state="disabled")
+
+                    boton_numero_1.config(bg="#a4161a")
+                    boton_numero_2.config(bg="#a4161a")
+                    boton_numero_3.config(bg="#a4161a")
+                    boton_numero_4.config(bg="#a4161a")
+                    boton_numero_5.config(bg="#a4161a")
+                    
                         
             ventana_jugar.destroy()
             messagebox.showinfo(title="Timer",message="¡EXCELENTE! JUEGO TERMINADO CON ÉXITO") 
