@@ -5,6 +5,7 @@ from tkinter import *
 from tkinter import messagebox
 import time
 
+
 #Creación de la ventana principal
 
 ventana_principal = Tk()  #Ventana principal
@@ -17,8 +18,10 @@ valor_nivel = 1
 valor_reloj = 4
 valor_posicion = 7
 bandera = False
+bandera_cargar = False
+carga_suma = 0
 
-lista_top_10_fácil = [("Javier",125),("Marta",56),("Joaquín",200)]
+lista_top_10_fácil = []
 lista_top_10_intermedio = []
 lista_top_10_dificil = []
 
@@ -218,7 +221,7 @@ def func_jugar():
     boton_top_10.place(x=655,y=590)
 
     boton_cargar_juego = Button(ventana_jugar,text="CARGAR JUEGO",font=("Arial Black",12),bg="#b1a7a6",height = 1, width = 15,\
-    state="normal")
+    state="normal",command=activar_cargar_juego)
     boton_cargar_juego.place(x=470,y=590)
 
     boton_guardar_juego = Button(ventana_jugar,text="GUARDAR JUEGO",font=("Arial Black",12),bg="#b1a7a6",height = 1, width = 15,\
@@ -566,14 +569,16 @@ def func_jugar():
 
     archivo.close()
 
-    # Crea la matriz para poner los valores a las casillas
+    if bandera_cargar == False:
 
-    matriz_de_botones()
+        matriz_de_botones()
+        archivo_partida_dificultad()
+    
+    if bandera_cargar == True and carga_suma == 1:
 
-    # Lee el archivo para saber qué valor colocar a las casillas
-    archivo_partida_dificultad()
-
-
+        matriz_de_botones()
+        cargar_juego()
+        
 #Funcion configuración
 
 def func_config(): 
@@ -941,7 +946,8 @@ def iniciar_juego():
 
     nombre_jugador = str(entrada_nombre_jugador.get())
 
-    if nombre_jugador != "" and len(nombre_jugador) < 20:
+
+    if nombre_jugador != "" and len(nombre_jugador):
         
         global timer
         global timer_horas, timer_minutos, timer_segundos, timer, felicidades
@@ -975,7 +981,8 @@ def iniciar_juego():
         if valor_reloj == 5:
             pass
     else:
-        messagebox.showinfo(title="Aviso",message= "VALIDE EL NOMBRE DEL JUGADOR, ESTE DEBE SER MAXIMO DE 2O CARACTERES ")
+        messagebox.showinfo(title="Aviso",message= "VALIDE EL NOMBRE DEL JUGADOR, ESTE DEBE SER MAXIMO DE 2O CARACTERES\
+        Y NO ESTAR EN EL TOP 10 DE JUGADORES ")
 
 
 #Función borrar jugada
@@ -1139,7 +1146,6 @@ def guardar_juego():
         while True:
             try:
                 x = pickle.load(z)
-                print(x)
             except EOFError:
                 break
         z.close()
@@ -1158,7 +1164,6 @@ def guardar_juego():
         while True:
             try:
                 x = pickle.load(z)
-                print(x)
             except EOFError:
                 break
         z.close()
@@ -1177,17 +1182,89 @@ def guardar_juego():
         while True:
             try:
                 x = pickle.load(z)
-                print(x)
             except EOFError:
                 break
         z.close()
-
-
+        
 #Funcion cargar_juego
 
 def cargar_juego():
-    pass
 
+    import pickle
+
+    global valor_nivel,valor_reloj,valor_posicion,matriz_pila,seg_timer,min_timer,hora_timer,seg_reloj,min_reloj,hora_reloj
+
+    f = open("futoshiki2021juegoactual.dat","rb")
+    while True:
+        try:
+            x = pickle.load(f)
+            lista_cargar = x
+        except EOFError:
+            break
+    f.close()
+
+    entrada_nombre_jugador.insert(0,"hola")
+
+    for elemento in lista_cargar[3][0]:
+        if elemento[0] == "<" or elemento[0] == ">":
+
+            restricciones_paralelas[elemento[1]][elemento[2]].config(text=elemento[0])
+            signo_restricciones_paralelas[elemento[1]][elemento[2]] = elemento[0]
+
+
+        elif elemento[0] == "˄" or elemento[0] == "˅":
+
+            restricciones_verticales[elemento[1]][elemento[2]].config(text=elemento[0])
+            signo_restricciones_verticales[elemento[1]][elemento[2]] = elemento[0]
+
+        else:
+            matriz_botones[elemento[1]][elemento[2]].config(text=elemento[0])
+            matriz_botones[elemento[1]][elemento[2]].config(command=casilla_fija)
+
+            valores_botones[elemento[1]][elemento[2]] = int(elemento[0])
+            valores_botones_vertical[elemento[2]][elemento[1]]= int(elemento[0])
+        
+        
+    valor_nivel = lista_cargar[0][0]
+    valor_reloj = lista_cargar[0][1]
+    valor_posicion = lista_cargar[0][2]
+
+    for valor in lista_cargar[4][0]:
+
+        matriz_botones[valor[0]][valor[1]].config(text=valor[2])
+        valores_botones[valor[0]][valor[1]] = int(valor[2])
+        valores_botones_vertical[valor[1]][valor[0]]= int(valor[2])
+        
+    matriz_pila = lista_cargar[4][0]
+
+    if valor_reloj == 4:
+
+        seg_reloj = lista_cargar[1][0]
+        min_reloj = lista_cargar[1][1]
+        hora_reloj = lista_cargar[1][2]
+
+        timer_horas.config(text=hora_reloj)
+        timer_minutos.config(text=min_reloj)
+        timer_segundos.config(text=seg_reloj)
+
+    if valor_reloj == 6:
+          
+        seg_timer = lista_cargar[1][0]
+        min_timer = lista_cargar[1][1]
+        hora_timer = lista_cargar[1][2]
+
+        timer_horas.config(text=hora_timer)
+        timer_minutos.config(text=min_timer)
+        timer_segundos.config(text=seg_timer)
+        
+def activar_cargar_juego():
+    global bandera_cargar,carga_suma
+
+    ventana_jugar.destroy()
+    bandera_cargar = True
+    carga_suma += 1
+    func_jugar()
+        
 #Funciones para cambiar el color del boton seleccionado
 
 def click_boton1():
