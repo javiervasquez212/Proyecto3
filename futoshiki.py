@@ -149,6 +149,7 @@ def func_jugar():
     global seg_reloj,min_reloj,hora_reloj
     global entrada_nombre_jugador
     global cambio_timer
+    global bandera_cargar
     
 
     seg_reloj = 0
@@ -571,10 +572,11 @@ def func_jugar():
         matriz_de_botones()
         archivo_partida_dificultad()
     
-    if bandera_cargar == True and carga_suma == 1:
+    if bandera_cargar == True:
 
         matriz_de_botones()
         cargar_juego()
+        bandera_cargar = False
         
 #Funcion configuración
 
@@ -1111,8 +1113,7 @@ def borrar_juego():
             boton_numero_3.config(bg="#a4161a")
             boton_numero_4.config(bg="#a4161a")
             boton_numero_5.config(bg="#a4161a")
-
-
+            
         if valor_reloj == 4:
             timer.destroy()
             seg_reloj = 0
@@ -1333,10 +1334,8 @@ def cargar_juego():
         
 def activar_cargar_juego():
     global bandera_cargar,carga_suma
-
     ventana_jugar.destroy()
     bandera_cargar = True
-    carga_suma += 1
     func_jugar()
         
 #Funciones para cambiar el color del boton seleccionado
